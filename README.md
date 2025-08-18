@@ -36,7 +36,7 @@ LoanRiskPredictor/
 │   └── voting_model.pkl
 │
 ├── notebooks/                  # Jupyter notebooks
-│   └── eda_and_visualization.ipynb
+│   └── eda_and_training.ipynb
 │
 ├── src/                        # Source code for ML pipeline
 │   ├── __init__.py
