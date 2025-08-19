@@ -169,11 +169,25 @@ uvicorn LoanRiskPredictor.api.fastapi_app:app --reload
 
 ### Endpoints
 
-#### GET /
-Returns welcome message.
+### `GET /`
+Returns a welcome message.  
 
-#### POST /predict
-Predicts loan default risk and returns feature importance.
+---
+
+### `GET /health`
+Checks if the predictor is loaded.  
+
+**Example Response**:
+```json
+{
+  "predictor_status": "loaded"
+}
+```
+
+---
+
+### `POST /predict`  
+Predicts loan default risk and returns feature importance.  
 
 **Example Request**:
 ```json
@@ -208,6 +222,50 @@ Predicts loan default risk and returns feature importance.
   }
 }
 ```
+
+---
+
+### `GET /metrics`  
+Returns final model evaluation metrics including classification report, confusion matrix, and ROC AUC score.  
+
+**Example Response**:
+```json
+{
+  "classification_report": {
+    "0": {
+      "precision": 0.95,
+      "recall": 0.68,
+      "f1_score": 0.79,
+      "support": 45121
+    },
+    "1": {
+      "precision": 0.22,
+      "recall": 0.70,
+      "f1_score": 0.34,
+      "support": 5929
+    },
+    "accuracy": 0.68,
+    "macro_avg": {
+      "precision": 0.58,
+      "recall": 0.69,
+      "f1_score": 0.56,
+      "support": 51050
+    },
+    "weighted_avg": {
+      "precision": 0.86,
+      "recall": 0.68,
+      "f1_score": 0.74,
+      "support": 51050
+    }
+  },
+  "confusion_matrix": [
+    [30622, 14499],
+    [1765, 4164]
+  ],
+  "roc_auc_score": 0.75
+}
+```
+
 
 ## Business Impact
 
