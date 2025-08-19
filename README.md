@@ -43,7 +43,8 @@ LoanRiskPredictor/
 │
 ├── models(validation)/             # High-performance models for testing the dataset
 │   ├── lightgbm(validation).joblib
-│   └── xgboost(validation).joblib
+│   ├── xgboost(validation).joblib
+│   └── preprocessing_pipeline(validation).joblib
 │
 ├── eda_and_training.ipynb          # Jupyter notebooks for EDA and training
 │
@@ -69,11 +70,15 @@ This project features two distinct sets of models. While both are trained on bal
 
 **Use Case**: This is the **production-ready** set of models. The API exclusively uses the Logistic Regression model from this group because of its proven effectiveness in achieving the core business goal.
 
+**Important**: When using models from this folder, always use the corresponding `preprocessing_pipeline.joblib` for data preprocessing to ensure compatibility and optimal performance.
+
 ### **Validation Models** (`models(validation)/`)
 
 > **Purpose**: These models are trained on a standard balanced dataset to **benchmark maximum achievable performance** under ideal conditions.
 
 **Use Case**: Use these models if you want to **test the data**. They are perfect for comparative analysis or to understand the upper limits of predictive power on a clean, perfectly balanced dataset.
+
+**Important**: When using models from this folder, always use the corresponding `preprocessing_pipeline(validation).joblib` for data preprocessing to ensure compatibility and optimal performance.
 
 ---
 
