@@ -33,7 +33,7 @@ LoanRiskPredictor/
 │   ├── lightgbm_model.joblib
 │   ├── logistic_regression.joblib
 │   ├── preprocessing_pipeline.joblib
-│   └── voting_model.pkl
+│  
 │
 │ ── eda_and_training.ipynb     # Jupyter notebooks
 │
