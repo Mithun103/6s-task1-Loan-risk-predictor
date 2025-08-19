@@ -98,7 +98,7 @@ The following **Validation Models** were trained on a standard balanced dataset 
 ### **Installation**
 
 1. **Clone the repository**:  
-   git clone https://github.com/username/LoanRiskPredictor.git  
+   git clone https://github.com/Mithun103/6s-task1-Loan-risk-predictor.git 
    cd LoanRiskPredictor
 
 2. **Create virtual environment**:  
