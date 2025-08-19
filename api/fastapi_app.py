@@ -109,10 +109,29 @@ def health_check():
     status = "loaded" if predictor else "not loaded"
     return {"predictor_status": status}
 
+@app.get("/metrics")
+def get_metrics():
+    """Return final model evaluation metrics."""
+    metrics = {
+        "classification_report": {
+            "0": {"precision": 0.95, "recall": 0.68, "f1_score": 0.79, "support": 45121},
+            "1": {"precision": 0.22, "recall": 0.70, "f1_score": 0.34, "support": 5929},
+            "accuracy": 0.68,
+            "macro_avg": {"precision": 0.58, "recall": 0.69, "f1_score": 0.56, "support": 51050},
+            "weighted_avg": {"precision": 0.86, "recall": 0.68, "f1_score": 0.74, "support": 51050}
+        },
+        "confusion_matrix": [
+            [30622, 14499],
+            [1765, 4164]
+        ],
+        "roc_auc_score": 0.75
+    }
+    return metrics
+
+
 # -----------------------------
 # Prediction Endpoint
 # -----------------------------
-@app.post("/predict")
 @app.post("/predict")
 def predict(application: LoanApplication):
     """
