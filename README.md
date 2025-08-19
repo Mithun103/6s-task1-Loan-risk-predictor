@@ -34,8 +34,8 @@ LoanRiskPredictor/
 │   ├── logistic_regression.joblib
 │   ├── preprocessing_pipeline.joblib
 │   └── voting_model.pkl
-│                # Jupyter notebooks
-│ ── eda_and_training.ipynb
+│
+│ ── eda_and_training.ipynb     # Jupyter notebooks
 │
 ├── src/                        # Source code for ML pipeline
 │   ├── __init__.py
